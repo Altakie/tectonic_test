@@ -3,7 +3,7 @@ cd 1x
 for file in $(ls); do
   scale=1000
   perl -i -pe "s/(recordcount=)([0-9]+)/\$1 . \$2*$scale/e" $file
-  perl -i -pe "s/(opcount=)([0-9]+)/\$1 . \$2*$scale/e" $file
+  perl -i -pe "s/(operationcount=)([0-9]+)/\$1 . \$2*$scale/e" $file
 done
 cd ..
 # Get all dirs with ls command
