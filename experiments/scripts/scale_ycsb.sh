@@ -1,3 +1,4 @@
+cp $HOME/YCSB/workloads/* 1x
 cd 1x
 for file in $(ls); do
   scale=1000
@@ -11,7 +12,7 @@ for scale in 10 100; do
   cd ${scale}x
   for file in $(ls); do
     perl -i -pe "s/(recordcount=)([0-9]+)/\$1 . \$2*$scale/e" $file
-    perl -i -pe "s/(opcount=)([0-9]+)/\$1 . \$2*$scale/e" $file
+    perl -i -pe "s/(operationcount=)([0-9]+)/\$1 . \$2*$scale/e" $file
   done
   cd ..
 done
