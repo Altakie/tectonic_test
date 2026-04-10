@@ -33,7 +33,7 @@ monitor_ycsb() {
   [[ -n "$monitor_pid" ]] && kill $monitor_pid 2>/dev/null
 }
 
-cd $HOME/ycsb
+cd $HOME/YCSB
 for wl in "${workloads[@]}"; do
   for run in $(seq 1 $runs); do
     prefix="${wl}/run${run}"
