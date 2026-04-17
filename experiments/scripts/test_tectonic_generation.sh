@@ -11,14 +11,14 @@ workloads=(
 time="/usr/bin/time"
 tectonic="$HOME/Tectonic/target/release/tectonic-cli"
 db_path="/tmp/tectonic-rocksdb"
-stats="$HOME/data/benchmarking/tectonic/rocksdb/1x/ycsb"
+stats="$HOME/data/generation/tectonic/rocksdb/ycsb/1x"
 runs=5
 spec_path="$HOME/tectonic_workloads/ycsb"
 time=/usr/bin/time
 
 cd $HOME/Tectonic
 git switch no-marker-array
-cargo build --release --features rocksdb
+cargo build --release rocksdb
 
 for wl in "${workloads[@]}"; do
   for run in $(seq 1 $runs); do
@@ -26,11 +26,12 @@ for wl in "${workloads[@]}"; do
     log_path="$stats/$prefix.out"
     time_path="$stats/$prefix.time"
     cpu_log_path="$stats/$prefix.cpu"
+    workload_path="$stats/$prefix.wl"
 
     sudo sysctl -w vm.drop_caches=3
 
-    $time -v -o $time_path $tectonic benchmark \
-      -w $spec_path/$wl.spec.json -d rocksdb > >(tee $log_path) &
+    $time -v -o $time_path $tectonic generate \
+      -w $spec_path/$wl.spec.json -o $workload_path > >(tee $log_path) &
     pid="$!"
 
     sleep 0.1
