@@ -13,7 +13,7 @@ tectonic="$HOME/Tectonic/target/release/tectonic-cli"
 db_path="/tmp/tectonic-rocksdb"
 stats="$HOME/data/generation/tectonic/rocksdb/ycsb/1x"
 runs=5
-spec_path="$HOME/tectonic_workloads/ycsb"
+spec_path="$HOME/workload_specs/tectonic/1x/"
 time=/usr/bin/time
 
 cd $HOME/Tectonic
