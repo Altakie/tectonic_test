@@ -11,18 +11,18 @@ workloads=(
 time="/usr/bin/time"
 tectonic="$HOME/Tectonic/target/release/tectonic-cli"
 db_path="/tmp/tectonic-rocksdb"
-stats="$HOME/stats"
+stats="$HOME/data/benchmarking/tectonic/rocksdb/1x"
 runs=5
 spec_path="$HOME/tectonic_workloads/ycsb"
 time=/usr/bin/time
 
 cd $HOME/Tectonic
 git switch no-marker-array
-cargo build --release
+cargo build --release --features rocksdb
 
 for wl in "${workloads[@]}"; do
   for run in $(seq 1 $runs); do
-    prefix="tectonic_ycsb${wl}_run${run}"
+    prefix="${wl}/run${run}"
     log_path="$stats/$prefix.out"
     time_path="$stats/$prefix.time"
     cpu_log_path="$stats/$prefix.cpu"
