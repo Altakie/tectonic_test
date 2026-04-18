@@ -45,7 +45,6 @@ def get_stats(workload_path: str, workload_name: str):
                 peak = 0
                 lines = lines[1:]
                 for line in lines:
-                    print(line)
                     if "RSS" in line:
                         continue
                     if line.strip() == "":
