@@ -28,7 +28,7 @@ for wl in "${workloads[@]}"; do
     cpu_log_path="$stats/$prefix.cpu"
 
     sudo sysctl -w vm.drop_caches=3
-    rm -rf db_path
+    rm -rf $db_path
 
     $time -v -o $time_path $tectonic benchmark \
       -w $spec_path/$wl.spec.json -d rocksdb -p $db_path > >(tee $log_path) &
