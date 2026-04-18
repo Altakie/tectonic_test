@@ -26,7 +26,7 @@ def get_stats(workload_path: str, workload_name: str):
         file_split = file.split(".")
         if len(file_split) < 2:
             continue
-        file_extension = file[1]
+        file_extension = file_split[1]
         real_file = os.path.join(workload_path, file)
         with open(real_file, "r") as f:
             lines = f.readlines()
