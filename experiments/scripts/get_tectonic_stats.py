@@ -33,7 +33,7 @@ def get_stats(workload_path: str, workload_name: str):
             if file_extension == "time":
                 # Get wall time
                 for line in lines:
-                    if "Elapsed (wall clock time)" in line:
+                    if "Elapsed (wall clock) time" in line:
                         time = line.split("): ")[1]
                         times = time.split(":")
                         mins = int(times[0])
@@ -45,7 +45,6 @@ def get_stats(workload_path: str, workload_name: str):
                 peak = 0
                 lines = lines[1:]
                 for line in lines:
-                    print(line)
                     if "RSS" in line:
                         continue
                     if line.strip() == "":
