@@ -44,9 +44,13 @@ def get_stats(workload_path: str, workload_name: str):
                 # Get RSS memory
                 peak = 0
                 for line in lines:
+                    print(line)
                     if "RSS" in line:
                         continue
-                    rss_mem = int(line[12])
+                    if line.strip() == "":
+                        continue
+                    line_split = line.split()
+                    rss_mem = int(line_split[12])
                     if rss_mem > peak:
                         peak = rss_mem
                 total_peak_memory += peak
