@@ -47,6 +47,8 @@ def get_stats(workload_path: str, workload_name: str):
                 for line in lines:
                     if "RSS" in line:
                         continue
+                    if "Linux" in line:
+                        continue
                     if line.strip() == "":
                         continue
                     line_split = line.split()
