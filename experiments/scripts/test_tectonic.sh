@@ -35,7 +35,7 @@ for wl in "${workloads[@]}"; do
     pid="$!"
 
     sleep 0.1
-    child_pid=$(pgrep -P $pid tectonic)
+    child_pid=$(pgrep -P $pid tectonic-cli)
     while ! ps -p $child_pid >/dev/null 2>&1; do sleep 0.01; done
 
     pidstat 1 -h -r -u -p $child_pid >"$cpu_log_path" &
