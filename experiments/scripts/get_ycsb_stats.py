@@ -27,7 +27,8 @@ def get_stats(workload_path: str, workload_name: str):
         if len(file_split) < 2:
             continue
         file_extension = file[1]
-        with open(file, "r") as f:
+        real_file = os.path.join(workload_path, file)
+        with open(real_file, "r") as f:
             lines = f.readlines()
             if file_extension == "time":
                 # Get wall time
