@@ -43,6 +43,7 @@ def get_stats(workload_path: str, workload_name: str):
             elif file_extension == "cpu":
                 # Get RSS memory
                 peak = 0
+                lines = lines[1:]
                 for line in lines:
                     print(line)
                     if "RSS" in line:

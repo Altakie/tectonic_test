@@ -30,6 +30,7 @@ def get_stats(workload_path: str, workload_name: str):
         real_file = os.path.join(workload_path, file)
         with open(real_file, "r") as f:
             lines = f.readlines()
+            lines = lines[1:]
             if file_extension == "time":
                 # Get wall time
                 for line in lines:
