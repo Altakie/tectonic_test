@@ -21,5 +21,6 @@ averaged_stats = {}
 #         file_split = file.
 
 
-for path, _, file in os.walk(STATS):
+for path, dir, file in os.walk(STATS):
     print(file)
+    print(dir)
