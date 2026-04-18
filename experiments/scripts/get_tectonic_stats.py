@@ -1,6 +1,8 @@
 import os
 
-STATS = "$HOME/data/benchmarking/tectonic/rocksdb/1x/ycsb"
+
+HOME = os.getenv("HOME")
+STATS = f"{HOME}/data/benchmarking/tectonic/rocksdb/1x/ycsb"
 OP_COUNT = 2000000
 
 """
@@ -21,6 +23,5 @@ averaged_stats = {}
 #         file_split = file.
 
 
-for path, dir, file in os.walk(STATS):
-    print(file)
-    print(dir)
+for path, workload, file in os.walk(STATS):
+    print(workload)
