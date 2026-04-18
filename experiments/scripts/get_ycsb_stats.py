@@ -2,7 +2,7 @@ import os
 
 
 HOME = os.getenv("HOME")
-STATS = f"{HOME}/data/benchmarking/tectonic/rocksdb/1x/ycsb"
+STATS = f"{HOME}/data/benchmarking/ycsb/rocksdb/1x/"
 OP_COUNT = 2000000
 RUNS = 5
 
