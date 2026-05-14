@@ -11,10 +11,13 @@ workloads=(
 time="/usr/bin/time"
 tectonic="$HOME/Tectonic/target/release/tectonic-cli"
 db_path="/tmp/tectonic-rocksdb"
-stats="$HOME/data/benchmarking/tectonic/rocksdb/1x/ycsb"
 runs=5
-spec_path="$HOME/workload_specs/tectonic/1x/"
 time=/usr/bin/time
+# stats="$HOME/data/benchmarking/tectonic/rocksdb/1x/ycsb"
+# spec_path="$HOME/workload_specs/tectonic/1x/"
+scale=$1
+stats="$HOME/data/benchmarking/tectonic/rocksdb/${scale}x/ycsb"
+spec_path="$HOME/workload_specs/tectonic/${scale}x/"
 
 cd $HOME/Tectonic
 git switch no-marker-array
