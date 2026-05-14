@@ -17,7 +17,7 @@ time=/usr/bin/time
 # spec_path="$HOME/workload_specs/tectonic/1x/"
 scale=$1
 stats="$HOME/data/benchmarking/tectonic/rocksdb/${scale}x/ycsb"
-spec_path="$HOME/workload_specs/tectonic/${scale}x/"
+spec_path="$HOME/workload_specs/tectonic/ycsb/${scale}x/"
 
 cd $HOME/Tectonic
 git switch no-marker-array
