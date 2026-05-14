@@ -7,7 +7,7 @@ for file in $(ls); do
 done
 cd ..
 # Get all dirs with ls command
-for scale in 10 100; do
+for scale in 5 10; do
   cp 1x/* ${scale}x
   cd ${scale}x
   for file in $(ls); do
