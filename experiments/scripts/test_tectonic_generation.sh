@@ -50,6 +50,8 @@ for wl in "${workloads[@]}"; do
     exit_code=$?
     kill $monitor_pid 2>/dev/null
 
+    rm -f $wl_out_path
+
     if [[ $exit_code -ne 0 ]]; then
       echo "Something went wrong: workload $wl failed." | tee -a "$log_path"
     else
