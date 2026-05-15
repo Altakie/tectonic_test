@@ -1,10 +1,16 @@
 import os
+import sys
 
+
+scale = int(sys.argv[1])
 
 HOME = os.getenv("HOME")
-STATS = f"{HOME}/data/benchmarking/tectonic/rocksdb/1x/ycsb"
-OP_COUNT = 2000000
+STATS = f"{HOME}/data/benchmarking/tectonic/rocksdb/{scale}x/ycsb"
+OP_COUNT = 2000000 * scale
 RUNS = 5
+
+
+# stats = sys.argv[1]
 
 """
 For each workload, go through each run

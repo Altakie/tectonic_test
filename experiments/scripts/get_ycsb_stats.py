@@ -1,9 +1,12 @@
 import os
+import sys
 
+
+scale = int(sys.argv[1])
 
 HOME = os.getenv("HOME")
-STATS = f"{HOME}/data/benchmarking/ycsb/rocksdb/1x/"
-OP_COUNT = 2000000
+STATS = f"{HOME}/data/benchmarking/ycsb/rocksdb/{scale}x/"
+OP_COUNT = 2000000 * scale
 RUNS = 5
 
 """
